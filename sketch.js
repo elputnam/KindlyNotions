@@ -26,7 +26,7 @@ function setup() {
 }
 
 function draw() {
-  background(0,10);
+  background(0,1);
   
   for(let i=0; i < swarm.length; i++){
     swarm[i].update();
