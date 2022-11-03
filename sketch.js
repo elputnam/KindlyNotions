@@ -10,7 +10,7 @@ let deg = 0;
 let H1 = 0;
 let x = 0;
 let y = 0;
-let reset;
+let reset1;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -48,11 +48,11 @@ function draw() {
   deg += random(0.01, 0.05);
 
   if (width < height){
-    reset = width/2
+    reset1 = width/2
   } else {
-    reset = height/2
+    reset1 = height/2
   }
-  if (diam == MIN || diam == reset){
+  if (diam == MIN || diam == reset1){
     inc *= -1;
   }
   if (diam <= 0){
