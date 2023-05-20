@@ -12,8 +12,18 @@ let x = 0;
 let y = 0;
 let reset1;
 
+//CCapture
+// var capture = false; // default is to not capture frames, can be changed with button in browser
+var capturer = new CCapture({
+  format:'webm', 
+  workersPath: 'js/',
+  framerate: 20
+});
+
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  // createCanvas(windowWidth, windowHeight);
+  createCanvas(1920, 1080);
   colorMode(HSB, 360, 100, 100, 100);
   frameRate(20);
   background(0);
@@ -26,6 +36,7 @@ function setup() {
 }
 
 function draw() {
+  if (frameCount==1) capturer.start(); // start the animation capture
   background(0,1);
   
   for(let i=0; i < swarm.length; i++){
@@ -60,7 +71,11 @@ function draw() {
     x = random(-width*.3, width*.3);
     y = random(-height*.3, height*.3);
   }
-
+  capturer.capture(document.getElementById('defaultCanvas0'));  
+  if (frameCount==6000){
+    save_record();
+  }
+  print(frameCount);
   }
 
 
@@ -81,6 +96,10 @@ this.update = function(){
 
 }
 
+}
+
+function save_record() {
+  capturer.save();
 }
 
 
