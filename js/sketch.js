@@ -59,17 +59,17 @@ function draw() {
   deg += random(0.01, 0.05);
 
   if (width < height){
-    reset1 = width/2
+    reset1 = width*.75
   } else {
-    reset1 = height/2
+    reset1 = height*.75
   }
   if (diam == MIN || diam == reset1){
     inc *= -1;
   }
   if (diam <= 0){
     H1 = random(360);
-    x = random(-width*.3, width*.3);
-    y = random(-height*.3, height*.3);
+    // x = random(-width*.3, width*.3);
+    // y = random(-height*.3, height*.3);
   }
   capturer.capture(document.getElementById('defaultCanvas0'));  
   if (frameCount==6000){
